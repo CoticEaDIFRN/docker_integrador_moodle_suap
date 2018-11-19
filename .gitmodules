@@ -1,0 +1,9 @@
+[submodule "apps/suap_mock"]
+	path = apps/suap_mock
+	url = https://github.com/johnt1000/suap_mock.git
+[submodule "apps/app_integrador_moodle_suap"]
+	path = apps/app_integrador_moodle_suap
+	url = https://github.com/CoticEaDIFRN/app_integrador_moodle_suap.git
+[submodule "apps/ms_integrador_moodle_suap"]
+	path = apps/ms_integrador_moodle_suap
+	url = https://github.com/CoticEaDIFRN/ms_integrador_moodle_suap.git
