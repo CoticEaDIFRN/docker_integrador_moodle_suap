@@ -2,36 +2,36 @@ version: '3.0'
 
 services:
 
-  mock:
-    image: coticeadifrn/mock
+  mockup:
+    image: coticeadifrn/moodle_suap_mockup
     build:
-      context: ../apps/suap_mock
+      context: ../apps/moodle_suap_mockup
     env_file: .env
     ports:
       - 7777:7777
     volumes:
-      - ../apps/suap_mock:/app
+      - ../apps/moodle_suap_mockup:/app
       - /app/vendor
   
-  microservice:
-    image: coticeadifrn/microservice
+  integrador_ms:
+    image: coticeadifrn/integrador_ms
     build:
-      context: ../apps/ms_integrador_moodle_suap
+      context: ../apps/moodle_suap_integrador_ms
     env_file: .env
     ports:
       - 8080:8080
     volumes:
-      - ../apps/ms_integrador_moodle_suap:/apps/app
+      - ../apps/moodle_suap_integrador_ms:/apps/app
 
-  app_sync:
-    image: coticeadifrn/app_sync
+  integrador_app:
+    image: coticeadifrn/integrador_app
     build:
-      context: ../apps/app_integrador_moodle_suap
+      context: ../apps/moodle_suap_integrador_app
     env_file: .env
     ports:
       - 8000:8000
     volumes:
-      - ../apps/app_integrador_moodle_suap:/apps/app
+      - ../apps/moodle_suap_integrador_app:/apps/app
     depends_on:
-      - mock
-      - microservice
+      - mockup
+      - integrador_ms
